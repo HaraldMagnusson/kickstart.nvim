@@ -42,6 +42,9 @@ vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
 vim.o.expandtab = true
 
+vim.o.smartindent = true
+vim.o.autoindent = true
+
 -- Save undo history
 vim.o.undofile = true
 
@@ -128,6 +131,13 @@ vim.keymap.set('n', '<C-S-k>', '<C-w>K', { desc = 'Move window to the upper' })
 
 vim.keymap.set('n', '<M-j>', '<cmd>cnext<cr>', { desc = 'Quickfix: next item' })
 vim.keymap.set('n', '<M-k>', '<cmd>cprev<cr>', { desc = 'Quickfix: previous item' })
+
+-- move lines up and down in visual mode
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+
+-- paste without overwriting register
+vim.keymap.set('x', '<leader>p', '"_dP')
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
